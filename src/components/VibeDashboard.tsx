@@ -78,7 +78,7 @@ export function VibeDashboard() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between items-center px-4">
-        <div className="flex items-center gap-2 text-theme-primary/60">
+        <div className="flex items-center gap-2 text-black dark:text-theme-primary/60">
           <Sparkles size={16} />
           <span className="text-xs font-bold uppercase tracking-tighter">Vibe Card Generated</span>
         </div>
@@ -93,7 +93,7 @@ export function VibeDashboard() {
 
       <div 
         ref={dashboardRef}
-        className="flex flex-col gap-8 bg-white/90 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-slate-200/60 dark:border-white/5 shadow-xl shadow-slate-200/50 dark:shadow-none relative z-10"
+        className="flex flex-col gap-8 bg-slate-900 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-slate-800 dark:border-white/5 shadow-2xl relative z-10"
       >
         {/* Toast Notification inside capturing ref? No, toast should stay outside or be ignored. Actually, copiedColor is transient. */}
         {/* We moved Toast outside in the previous structure too, but let's keep it clean. */}
@@ -139,11 +139,11 @@ export function VibeDashboard() {
             <section className="h-full flex flex-col">
               <div className="flex items-center gap-2 mb-4 text-theme-primary">
                 <Sparkles size={24} />
-                <h2 className="text-3xl font-extrabold tracking-tight text-theme-text">Poetic Description</h2>
+                <h2 className="text-3xl font-extrabold tracking-tight text-white">Poetic Description</h2>
               </div>
-              <div className="relative flex-1 p-8 rounded-2xl bg-slate-50/50 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 overflow-hidden group">
+              <div className="relative flex-1 p-8 rounded-2xl bg-white/5 border border-white/10 overflow-hidden group">
                 <div className="absolute top-0 left-0 w-1.5 h-full bg-theme-primary opacity-80" />
-                <p className="relative z-10 text-2xl text-theme-text leading-relaxed font-serif italic selection:bg-theme-primary/20">
+                <p className="relative z-10 text-2xl text-white/90 leading-relaxed font-serif italic selection:bg-theme-primary/20">
                   "{response.poeticDescription}"
                 </p>
                 <div className="absolute -right-4 -bottom-4 opacity-5 text-theme-primary transition-transform group-hover:scale-110 duration-700">
@@ -158,8 +158,8 @@ export function VibeDashboard() {
 
         {/* Atmospheric Mood - Full Width */}
         <section className="w-full">
-          <h3 className="text-sm font-bold uppercase tracking-widest text-theme-secondary mb-3">Atmospheric Mood</h3>
-          <p className="text-xl text-theme-text-muted leading-relaxed font-medium">
+          <h3 className="text-sm font-bold uppercase tracking-widest text-theme-primary mb-3">Atmospheric Mood</h3>
+          <p className="text-xl text-white/80 leading-relaxed font-medium">
             {response.moodAnalysis}
           </p>
         </section>
