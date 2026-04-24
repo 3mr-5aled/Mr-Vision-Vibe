@@ -22,12 +22,12 @@ export interface GeminiResponse {
 export class GeminiService {
   private genAI: GoogleGenerativeAI;
 
-  constructor() {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    if (!apiKey) {
-      throw new Error("Missing VITE_GEMINI_API_KEY in .env.local");
+  constructor(apiKey?: string) {
+    const keyToUse = apiKey || import.meta.env.VITE_GEMINI_API_KEY;
+    if (!keyToUse) {
+      throw new Error("Missing Gemini API Key. Please add it in settings.");
     }
-    this.genAI = new GoogleGenerativeAI(apiKey);
+    this.genAI = new GoogleGenerativeAI(keyToUse);
   }
 
   async analyzeImage(base64Image: string, mimeType: string): Promise<GeminiResponse> {
