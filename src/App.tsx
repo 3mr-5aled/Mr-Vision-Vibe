@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import { ImageUploader } from './components/ImageUploader';
 import { CameraCapture } from './components/CameraCapture';
 import { VibeDashboard } from './components/VibeDashboard';
 import { HistoryPanel } from './components/HistoryPanel';
 import { FeaturesAccordion } from './components/FeaturesAccordion';
-import { Sparkle } from 'lucide-react';
+import { SettingsModal } from './components/SettingsModal';
+import { Sparkle, Settings } from 'lucide-react';
 import AntigravityLogo from './assets/Antigravity.jpg';
 import GeminiLogo from './assets/geminicli.png';
 
 function App() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-theme-surface p-4 md:p-8 lg:p-12 font-sans text-theme-text selection:bg-theme-primary/30 transition-colors duration-500 overflow-hidden relative">
       {/* Animated Background Blobs */}
@@ -18,6 +22,13 @@ function App() {
       </div>
       
       <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
+        <button 
+          onClick={() => setIsSettingsOpen(true)}
+          className="absolute top-0 right-0 p-3 bg-theme-card rounded-full shadow-lg border border-slate-200/50 dark:border-gray-800 text-theme-text-muted hover:scale-110 transition-all cursor-pointer z-50"
+          title="Settings"
+        >
+          <Settings size={24} />
+        </button>
         
         {/* Header */}
         <header className="flex flex-col gap-2">
@@ -122,6 +133,7 @@ function App() {
         </footer>
 
       </div>
+      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
     </div>
   );
 }

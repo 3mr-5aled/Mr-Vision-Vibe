@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Key, Save, Trash2 } from 'lucide-react';
 import { visionLogic } from '../logic/visionLogic';
 
