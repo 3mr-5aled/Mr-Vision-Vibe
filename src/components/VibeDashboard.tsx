@@ -11,14 +11,11 @@ export function VibeDashboard() {
   const handleExport = useCallback(() => {
     if (dashboardRef.current === null) return;
     
-    // Check current theme
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    
     toPng(dashboardRef.current, { 
       cacheBust: true,
-      backgroundColor: isDarkMode ? '#0f172a' : '#f8fafc', // Match theme background
+      backgroundColor: '#0f172a', // Constant dark background
       style: {
-        borderRadius: '0' // Ensure corners are clean in export if needed
+        borderRadius: '0'
       }
     })
       .then((dataUrl) => {
@@ -44,7 +41,7 @@ export function VibeDashboard() {
         <div className="flex items-center gap-4">
           <h2 className="text-2xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">Analysis View</h2>
           {status === 'SUCCESS' && (
-            <div className="flex items-center gap-2 text-black dark:text-theme-primary/60">
+            <div className="flex items-center gap-2 text-slate-400">
               <Sparkles size={16} />
               <span className="text-xs font-bold uppercase tracking-tighter">Vibe Card Generated</span>
             </div>
@@ -143,11 +140,11 @@ export function VibeDashboard() {
                   <h2 className="text-3xl font-extrabold tracking-tight text-white">Poetic Description</h2>
                 </div>
                 <div className="relative flex-1 p-8 rounded-2xl bg-white/5 border border-white/10 overflow-hidden group">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-theme-accent opacity-80" />
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-theme-secondary opacity-80" />
                   <p className="relative z-10 text-2xl text-white/90 leading-relaxed font-serif italic selection:bg-theme-primary/20">
                     "{currentResult.response.poeticDescription}"
                   </p>
-                  <div className="absolute -right-4 -bottom-4 opacity-5 text-theme-accent transition-transform group-hover:scale-110 duration-700">
+                  <div className="absolute -right-4 -bottom-4 opacity-5 text-theme-secondary transition-transform group-hover:scale-110 duration-700">
                      <Sparkles size={120} />
                   </div>
                 </div>

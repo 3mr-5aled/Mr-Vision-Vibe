@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# 🌌 VisionVibe: Multimodal Visual Intelligence
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+VisionVibe is a cutting-edge web application that blends artificial intelligence with artistic expression. Powered by Google's Gemini 1.5 Flash, it transforms your images and live camera captures into immersive "Midnight" vibe cards, complete with poetic descriptions, atmospheric mood analysis, and dynamically extracted color palettes.
 
-Currently, two official plugins are available:
+![VisionVibe Screenshot](https://raw.githubusercontent.com/3mr-5aled/vision-vibe/main/public/screenshot-placeholder.png) *(Note: Add actual screenshot URL after hosting)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **🧠 Multimodal AI Analysis**: Leverages Gemini 1.5 Flash to understand the deep visual essence of any image.
+- **🌑 Midnight Aesthetic**: A high-contrast, immersive dark-mode interface designed for focus and impact.
+- **🎨 Dynamic Palettes**: Automatically extracts and displays the dominant colors of your visuals.
+- **📸 Live Capture**: Seamlessly integrate your device camera for real-time vibe generation.
+- **💾 Historical Intelligence**: Local persistence ensures your visual journey is saved and accessible anytime.
+- **📥 Instant Export**: Download your vibes as beautifully formatted PNG cards.
+- **📱 Progressive Web App (PWA)**: Installable on mobile and desktop for a native, lightning-fast experience.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS 4, Lucide Icons
+- **AI Engine**: Google Generative AI (@google/generative-ai)
+- **PWA**: vite-plugin-pwa
+- **Imaging**: html-to-image
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js (v18 or higher)
+- A Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/3mr-5aled/vision-vibe.git
+   cd vision-vibe
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. Configure your environment:
+   Create a `.env.local` file in the root directory:
+   ```env
+   VITE_GEMINI_API_KEY=your_api_key_here
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🤝 Credits
+
+- **Developer**: [3mr5aled](https://github.com/3mr-5aled)
+- **Built with**: Gemini CLI & Google Antigravity
+- **Academic Supervision**: Ali Tamer (Front-End Lead, GDG On Campus, Future Academy)
+
+## 📜 License
+
+MIT © [3mr5aled](https://github.com/3mr-5aled)
