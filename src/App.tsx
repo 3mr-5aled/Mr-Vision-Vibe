@@ -2,7 +2,10 @@ import { ImageUploader } from './components/ImageUploader';
 import { CameraCapture } from './components/CameraCapture';
 import { VibeDashboard } from './components/VibeDashboard';
 import { HistoryPanel } from './components/HistoryPanel';
+import { FeaturesAccordion } from './components/FeaturesAccordion';
 import { Sparkle } from 'lucide-react';
+import AntigravityLogo from './assets/Antigravity.jpg';
+import GeminiLogo from './assets/geminicli.png';
 
 function App() {
   return (
@@ -61,6 +64,16 @@ function App() {
            </div>
         </section>
 
+        {/* Core Capabilities Section */}
+        <section className="flex flex-col gap-4">
+           <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1">Core Capabilities</h3>
+           <div className="grid grid-cols-1 gap-6 bg-white/90 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-slate-200/60 dark:border-white/5 shadow-xl shadow-slate-200/50 dark:shadow-none">
+              <div className="relative z-10">
+                <FeaturesAccordion />
+              </div>
+           </div>
+        </section>
+
         {/* Footer Credits */}
         <footer className="mt-12 py-12 border-t border-slate-800/50 flex flex-col gap-8">
            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -68,11 +81,11 @@ function App() {
               <div className="flex items-center gap-4 text-slate-500 text-sm font-medium">
                  <span>Built with help from</span>
                  <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-                    <Sparkle size={14} className="text-[#3b82f6]" />
+                    <img src={GeminiLogo} alt="Gemini CLI" className="w-4 h-4 rounded-sm" />
                     <span className="text-slate-300">Gemini CLI</span>
                  </div>
                  <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-                    <div className="w-3.5 h-3.5 bg-gradient-to-tr from-red-500 via-green-500 to-blue-500 rounded-sm" />
+                    <img src={AntigravityLogo} alt="Antigravity" className="w-4 h-4 rounded-sm" />
                     <span className="text-slate-300">Antigravity</span>
                  </div>
               </div>
