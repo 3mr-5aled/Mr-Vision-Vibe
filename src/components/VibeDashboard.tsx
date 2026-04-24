@@ -84,7 +84,7 @@ export function VibeDashboard() {
 
       <div 
         ref={dashboardRef}
-        className="flex flex-col gap-8 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-slate-200/50 dark:border-white/5 shadow-2xl shadow-slate-200/40 dark:shadow-none relative z-10"
+        className="flex flex-col gap-8 bg-white/90 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-slate-200/60 dark:border-white/5 shadow-xl shadow-slate-200/50 dark:shadow-none relative z-10"
       >
         {/* Toast Notification inside capturing ref? No, toast should stay outside or be ignored. Actually, copiedColor is transient. */}
         {/* We moved Toast outside in the previous structure too, but let's keep it clean. */}
