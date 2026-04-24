@@ -47,8 +47,8 @@ function App() {
         {/* Header */}
         <header className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gray-900 dark:bg-gray-100 rounded-xl shadow-lg transition-colors">
-              <Sparkle className="text-white dark:text-gray-900" size={32} />
+            <div className="p-2 bg-theme-primary/10 dark:bg-gray-100 rounded-xl shadow-lg transition-colors border border-theme-primary/20">
+              <Sparkle className="text-theme-primary dark:text-gray-900" size={32} />
             </div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-theme-text transition-colors">
               VisionVibe

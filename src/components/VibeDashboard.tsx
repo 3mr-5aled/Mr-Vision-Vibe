@@ -11,7 +11,16 @@ export function VibeDashboard() {
   const handleExport = useCallback(() => {
     if (dashboardRef.current === null) return;
     
-    toPng(dashboardRef.current, { cacheBust: true })
+    // Check current theme
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    
+    toPng(dashboardRef.current, { 
+      cacheBust: true,
+      backgroundColor: isDarkMode ? '#0f172a' : '#f8fafc', // Match theme background
+      style: {
+        borderRadius: '0' // Ensure corners are clean in export if needed
+      }
+    })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = `vibe-card-${Date.now()}.png`;
@@ -132,8 +141,8 @@ export function VibeDashboard() {
                 <Sparkles size={24} />
                 <h2 className="text-3xl font-extrabold tracking-tight text-theme-text">Poetic Description</h2>
               </div>
-              <div className="relative flex-1 p-8 rounded-2xl bg-theme-primary/5 border border-theme-primary/10 overflow-hidden group">
-                <div className="absolute top-0 left-0 w-1 h-full bg-theme-primary opacity-50" />
+              <div className="relative flex-1 p-8 rounded-2xl bg-slate-50/50 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-theme-primary opacity-80" />
                 <p className="relative z-10 text-2xl text-theme-text leading-relaxed font-serif italic selection:bg-theme-primary/20">
                   "{response.poeticDescription}"
                 </p>
