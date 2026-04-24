@@ -75,7 +75,6 @@ function App() {
           </div>
 
           <div className="lg:col-span-3 flex flex-col gap-4">
-             <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1">Analysis View</h3>
              <VibeDashboard />
           </div>
         </section>
