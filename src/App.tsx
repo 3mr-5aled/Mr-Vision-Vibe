@@ -28,9 +28,9 @@ function App() {
     <div className="min-h-screen bg-theme-surface p-4 md:p-8 lg:p-12 font-sans text-theme-text selection:bg-theme-primary/30 transition-colors duration-500 overflow-hidden relative">
       {/* Animated Background Blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-theme-primary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute top-[20%] right-[-5%] w-[40%] h-[40%] bg-theme-secondary/20 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
-        <div className="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] bg-theme-accent/20 rounded-full blur-[110px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '4s' }} />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-theme-primary/30 dark:bg-theme-primary/20 rounded-full blur-[120px] animate-pulse mix-blend-multiply dark:mix-blend-normal" style={{ animationDuration: '8s' }} />
+        <div className="absolute top-[20%] right-[-5%] w-[40%] h-[40%] bg-theme-secondary/30 dark:bg-theme-secondary/20 rounded-full blur-[100px] animate-pulse mix-blend-multiply dark:mix-blend-normal" style={{ animationDuration: '12s', animationDelay: '2s' }} />
+        <div className="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] bg-theme-accent/30 dark:bg-theme-accent/20 rounded-full blur-[110px] animate-pulse mix-blend-multiply dark:mix-blend-normal" style={{ animationDuration: '10s', animationDelay: '4s' }} />
       </div>
       
       <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
@@ -61,7 +61,7 @@ function App() {
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 flex flex-col gap-4">
             <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1">Input Source</h3>
-            <div className="grid grid-cols-1 gap-6 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-white/20 dark:border-white/5 shadow-2xl">
+            <div className="grid grid-cols-1 gap-6 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-slate-200/50 dark:border-white/5 shadow-2xl shadow-slate-200/40 dark:shadow-none">
               <div className="relative z-10 grid grid-cols-1 gap-6">
                 <ImageUploader />
                 <div className="flex items-center gap-4">
@@ -83,7 +83,7 @@ function App() {
         {/* Timeline Section: Under the cards */}
         <section className="flex flex-col gap-4">
            <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1">Historical Intelligence</h3>
-           <div className="bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-white/20 dark:border-white/5 shadow-2xl">
+           <div className="grid grid-cols-1 gap-6 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-slate-200/50 dark:border-white/5 shadow-2xl shadow-slate-200/40 dark:shadow-none">
               <div className="relative z-10">
                 <HistoryPanel />
               </div>
