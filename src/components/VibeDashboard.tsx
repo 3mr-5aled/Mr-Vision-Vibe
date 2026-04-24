@@ -50,7 +50,7 @@ export function VibeDashboard() {
   };
 
   return (
-    <div className="flex flex-col gap-8 p-8 animated-gradient-border shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 relative z-10">
+    <div className="flex flex-col gap-8 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 dark:border-white/5 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 relative z-10">
       
       {/* Toast Notification */}
       {copiedColor && (
