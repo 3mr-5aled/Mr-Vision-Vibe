@@ -14,6 +14,7 @@ type Listener = () => void;
 
 export class AntigravityLogic {
   private service: GeminiService | null = null;
+  public apiKey: string | null = null;
   public state: AppState = 'IDLE';
   public currentResult: ScanResult | null = null;
   public errorMsg: string | null = null;
@@ -21,8 +22,9 @@ export class AntigravityLogic {
   private listeners: Set<Listener> = new Set();
 
   constructor() {
+    this.loadApiKey();
     try {
-      this.service = new GeminiService();
+      this.service = new GeminiService(this.apiKey || undefined);
     } catch (e: any) {
       this.errorMsg = e.message;
       this.state = 'ERROR';
@@ -37,6 +39,32 @@ export class AntigravityLogic {
 
   private notify() {
     this.listeners.forEach(l => l());
+  }
+
+  private loadApiKey() {
+    this.apiKey = localStorage.getItem('visionVibeApiKey');
+  }
+
+  setApiKey(key: string) {
+    this.apiKey = key;
+    if (key) {
+      localStorage.setItem('visionVibeApiKey', key);
+    } else {
+      localStorage.removeItem('visionVibeApiKey');
+    }
+
+    try {
+      this.service = new GeminiService(key || undefined);
+      if (this.errorMsg && (this.errorMsg.includes("Missing Gemini API Key") || this.errorMsg.includes("settings"))) {
+        this.state = 'IDLE';
+        this.errorMsg = null;
+      }
+    } catch (e: any) {
+      this.service = null;
+      this.errorMsg = e.message;
+      this.state = 'ERROR';
+    }
+    this.notify();
   }
 
   private loadHistory() {
@@ -68,7 +96,7 @@ export class AntigravityLogic {
     if (this.state === 'ERROR' && !this.service) {
         // Try to re-init service if it failed before
         try {
-            this.service = new GeminiService();
+            this.service = new GeminiService(this.apiKey || undefined);
             this.state = 'IDLE';
             this.errorMsg = null;
         } catch(e: any) {
