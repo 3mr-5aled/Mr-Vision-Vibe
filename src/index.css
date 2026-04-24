@@ -4,12 +4,13 @@
   --color-primary: #2563eb;
   --color-secondary: #7c3aed;
   --color-accent: #d97706;
-  --color-bg-subtle: #ffffff;
-  --color-card-bg: #ffffff;
-  --color-surface-cream: #fffdfa; /* Ivory Cream */
-  --color-surface-cream-hover: #fcf6eb; /* Soft Custard/Cream Hover */
-  --color-text-main: #000000;
-  --color-text-muted: #374151;
+  --color-bg-subtle: #f8fafc; /* Slate 50 */
+  --color-card-bg: rgba(255, 255, 255, 0.7);
+  --color-surface-cream: #ffffff; /* Cleanup */
+  --color-surface-cream-hover: #f1f5f9; /* Slate 100 */
+  --color-text-main: #0f172a; /* Slate 900 */
+  --color-text-muted: #475569; /* Slate 600 */
+  --color-border-subtle: rgba(226, 232, 240, 0.5); /* Slate 200/50 */
 }
 
 .dark {
