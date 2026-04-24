@@ -1,10 +1,27 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useVisionLogic } from '../hooks/useVisionLogic';
-import { Loader2, Palette, Sparkles, AlertCircle, Check } from 'lucide-react';
+import { Loader2, Palette, Sparkles, AlertCircle, Check, Download } from 'lucide-react';
+import { toPng } from 'html-to-image';
 
 export function VibeDashboard() {
   const { status, currentResult, errorMsg } = useVisionLogic();
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
+  const dashboardRef = useRef<HTMLDivElement>(null);
+
+  const handleExport = useCallback(() => {
+    if (dashboardRef.current === null) return;
+    
+    toPng(dashboardRef.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = `vibe-card-${Date.now()}.png`;
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.error('oops, something went wrong!', err);
+      });
+  }, [dashboardRef]);
 
   if (status === 'IDLE') return null;
 
@@ -50,8 +67,24 @@ export function VibeDashboard() {
   };
 
   return (
-    <div className="flex flex-col gap-8 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 dark:border-white/5 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 relative z-10">
-      
+    <div 
+      ref={dashboardRef}
+      className="flex flex-col gap-8 bg-white/70 dark:bg-gray-900/60 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 dark:border-white/5 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 relative z-10"
+    >
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2 text-theme-primary/60">
+          <Sparkles size={16} />
+          <span className="text-xs font-bold uppercase tracking-tighter">Vibe Card Generated</span>
+        </div>
+        <button
+          onClick={handleExport}
+          className="flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold transition-all active:scale-95 shadow-sm group"
+        >
+          <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+          <span>Download Vibe</span>
+        </button>
+      </div>
+
       {/* Toast Notification */}
       {copiedColor && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-bottom-2 fade-in duration-300">
