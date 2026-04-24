@@ -1,0 +1,24 @@
+Act as a Senior Frontend Architect specialized in the Google Antigravity framework.
+Project: VisionVibe - An AI Visual Intelligence Web App.
+Objective: Build the core Logic, Service, and View layers for a purely client-side React app.
+Architecture Requirements:
+1. Service Layer (services/geminiService.js): 
+   - Integrate this list of gemini API models to handle multimodal (image + text) requests:
+const MODELS = [
+  "gemini-flash-latest",
+  "gemini-3.1-flash-lite-preview",
+  "gemini-3-flash-preview",
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+];
+   - Prompt Engineering: Instruct the model to provide a "poetic description," "mood analysis," and a "hex-code color palette" for any image provided.
+2. Logic Layer (logic/visionLogic.js): 
+   - Implement an Antigravity Logic class to manage the following states: IDLE, SCANNING, SUCCESS, ERROR.
+   - Handle image-to-base64 conversion and local storage synchronization for history.
+3. View Layer (components):
+   - ImageUploader: A Tailwind-styled drag-and-drop zone.
+   - CameraCapture: A live webcam feed component using the browser MediaDevices API.
+   - VibeDashboard: A display area for the AI's markdown response and the extracted color palette.
+   - HistoryPanel: A sidebar to view and reload previous scans from LocalStorage.
+Styling: Use Tailwind CSS. Implement a dynamic theme system where the background and accent colors update based on the palette returned by the Gemini API.
+No Backend: Ensure all data persistence is handled via Browser LocalStorage

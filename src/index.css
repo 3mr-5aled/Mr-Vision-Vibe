@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #7c3aed;
+  --color-accent: #d97706;
+  --color-bg-subtle: #ffffff;
+  --color-card-bg: #ffffff;
+  --color-surface-cream: #fffdfa; /* Ivory Cream */
+  --color-surface-cream-hover: #fcf6eb; /* Soft Custard/Cream Hover */
+  --color-text-main: #000000;
+  --color-text-muted: #374151;
+}
+
+.dark {
+  --color-bg-subtle: #0f172a;
+  --color-card-bg: #1e293b;
+  --color-surface-cream: #1e293b; 
+  --color-surface-cream-hover: #334155;
+  --color-text-main: #f9fafb;
+  --color-text-muted: #9ca3af;
+}
+
+@theme {
+  --color-theme-primary: var(--color-primary);
+  --color-theme-secondary: var(--color-secondary);
+  --color-theme-accent: var(--color-accent);
+  --color-theme-surface: var(--color-bg-subtle);
+  --color-theme-card: var(--color-card-bg);
+  --color-theme-cream: var(--color-surface-cream);
+  --color-theme-cream-hover: var(--color-surface-cream-hover);
+  --color-theme-text: var(--color-text-main);
+  --color-theme-text-muted: var(--color-text-muted);
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .animated-gradient-border {
+    position: relative;
+    border-radius: 2rem;
+    background: var(--color-card-bg);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  
+  /* The rotating background layer */
+  .animated-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -50%; 
+    z-index: -2;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      var(--color-primary) 90deg,
+      var(--color-secondary) 180deg,
+      var(--color-accent) 270deg,
+      var(--color-primary) 360deg
+    );
+    animation: rotate-border 4s linear infinite;
+  }
+
+  /* The "Inner Card" that creates the border effect */
+  .animated-gradient-border::after {
+    content: "";
+    position: absolute;
+    inset: 4px; 
+    z-index: -1;
+    background: var(--color-card-bg);
+    border-radius: calc(2rem - 4px);
+  }
+
+  @keyframes rotate-border {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
