@@ -65,6 +65,35 @@ function App() {
           </div>
         </section>
 
+        {/* Device Showcase Section */}
+        <section className="flex flex-col gap-6">
+           <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1 text-center md:text-left">Multi-Device Experience</h3>
+           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'iPad Pro', src: '/showcase/ipad-pro.png' },
+                { name: 'iPhone Pro', src: '/showcase/iphone-pro.png' },
+                { name: 'iPhone Mini', src: '/showcase/iphone-mini.png' },
+              ].map((device, i) => (
+                <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-all duration-500 hover:scale-[1.02]">
+                  <img 
+                    src={device.src} 
+                    alt={device.name}
+                    className="h-full w-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
+                    <span className="text-white font-bold text-xs uppercase tracking-widest">{device.name}</span>
+                  </div>
+                </div>
+              ))}
+              <div className="hidden lg:flex flex-col items-center justify-center p-8 rounded-2xl bg-white/5 border border-dashed border-white/10 text-center gap-3">
+                 <div className="w-12 h-12 rounded-full bg-theme-primary/10 flex items-center justify-center">
+                    <Smartphone className="text-theme-primary" size={24} />
+                 </div>
+                 <span className="text-xs font-bold text-slate-400 uppercase tracking-tighter leading-tight">Responsive Vision across all devices</span>
+              </div>
+           </div>
+        </section>
+
         {/* Timeline Section: Under the cards */}
         <section className="flex flex-col gap-4">
            <h3 className="text-sm font-bold uppercase tracking-widest text-theme-text/80 ml-1">Historical Intelligence</h3>
