@@ -40,8 +40,8 @@ function App() {
         {/* Header */}
         <header className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <div className="p-1 bg-white/5 rounded-2xl shadow-xl transition-transform hover:scale-105 border border-white/10">
-              <img src={AppIcon} alt="VisionVibe Logo" className="w-12 h-12 md:w-16 md:h-12 object-contain rounded-xl" />
+            <div className="transition-transform hover:scale-105">
+              <img src={AppIcon} alt="VisionVibe Logo" className="w-12 h-12 md:w-16 md:h-12 object-contain" />
             </div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-theme-text transition-colors">
               VisionVibe
