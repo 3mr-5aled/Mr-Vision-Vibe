@@ -7,7 +7,7 @@ import { FeaturesAccordion } from './components/FeaturesAccordion';
 import { SettingsModal } from './components/SettingsModal';
 import { Settings } from 'lucide-react';
 import { visionLogic } from './logic/visionLogic';
-import AppIcon from './assets/favicon_io/android-chrome-192x192.png';
+import AppIcon from './assets/favicon_io/android-chrome-512x512.png';
 import AntigravityLogo from './assets/Antigravity.jpg';
 import GeminiLogo from './assets/geminicli.png';
 
