@@ -1,8 +1,8 @@
-# 🌌 VisionVibe: Multimodal Visual Intelligence
+# <img src="src/assets/favicon_io/android-chrome-512x512.png" width="48" height="48" alt="VisionVibe Logo"> VisionVibe: Multimodal Visual Intelligence
 
 VisionVibe is a cutting-edge web application that blends artificial intelligence with artistic expression. Powered by Google's Gemini 1.5 Flash, it transforms your images and live camera captures into immersive "Midnight" vibe cards, complete with poetic descriptions, atmospheric mood analysis, and dynamically extracted color palettes.
 
-![VisionVibe Screenshot](https://raw.githubusercontent.com/3mr-5aled/vision-vibe/main/public/screenshot-placeholder.png) *(Note: Add actual screenshot URL after hosting)*
+![VisionVibe Screenshot](public/screenshot-placeholder.png)
 
 ## ✨ Features
 
