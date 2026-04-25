@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ImageUploader } from './components/ImageUploader';
 import { CameraCapture } from './components/CameraCapture';
 import { VibeDashboard } from './components/VibeDashboard';
 import { HistoryPanel } from './components/HistoryPanel';
 import { FeaturesAccordion } from './components/FeaturesAccordion';
 import { SettingsModal } from './components/SettingsModal';
-import { Sparkle, Settings } from 'lucide-react';
+import { Sparkle, Settings, Smartphone } from 'lucide-react';
+import { visionLogic } from './logic/visionLogic';
 import AntigravityLogo from './assets/Antigravity.jpg';
 import GeminiLogo from './assets/geminicli.png';
 
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    // Client-side only initialization
+    visionLogic.init();
+  }, []);
 
   return (
     <div className="min-h-screen bg-theme-surface p-4 md:p-8 lg:p-12 font-sans text-theme-text selection:bg-theme-primary/30 transition-colors duration-500 overflow-hidden relative">

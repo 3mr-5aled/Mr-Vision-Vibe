@@ -4,13 +4,21 @@ import type { AppState, ScanResult } from '../logic/visionLogic';
 
 export function useVisionLogic() {
   const [data, setData] = useState({
-    status: visionLogic.state as AppState,
-    currentResult: visionLogic.currentResult as ScanResult | null,
-    errorMsg: visionLogic.errorMsg as string | null,
-    history: visionLogic.history as ScanResult[]
+    status: 'IDLE' as AppState,
+    currentResult: null as ScanResult | null,
+    errorMsg: null as string | null,
+    history: [] as ScanResult[]
   });
 
   useEffect(() => {
+    // Initial sync
+    setData({
+      status: visionLogic.state,
+      currentResult: visionLogic.currentResult,
+      errorMsg: visionLogic.errorMsg,
+      history: visionLogic.history
+    });
+
     const update = () => {
       setData({
         status: visionLogic.state,

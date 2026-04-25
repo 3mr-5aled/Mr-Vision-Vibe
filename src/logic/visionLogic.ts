@@ -22,6 +22,10 @@ export class AntigravityLogic {
   private listeners: Set<Listener> = new Set();
 
   constructor() {
+    // Initial initialization without localStorage
+  }
+
+  public init() {
     this.loadApiKey();
     try {
       this.service = new GeminiService(this.apiKey || undefined);
@@ -30,6 +34,7 @@ export class AntigravityLogic {
       this.state = 'ERROR';
     }
     this.loadHistory();
+    this.notify();
   }
 
   subscribe(listener: Listener) {

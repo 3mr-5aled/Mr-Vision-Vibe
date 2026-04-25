@@ -72,5 +72,7 @@
 @layer base {
   body {
     @apply antialiased;
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-main);
   }
 }
