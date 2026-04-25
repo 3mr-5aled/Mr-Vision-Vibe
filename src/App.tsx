@@ -5,8 +5,9 @@ import { VibeDashboard } from './components/VibeDashboard';
 import { HistoryPanel } from './components/HistoryPanel';
 import { FeaturesAccordion } from './components/FeaturesAccordion';
 import { SettingsModal } from './components/SettingsModal';
-import { Sparkle, Settings } from 'lucide-react';
+import { Settings } from 'lucide-react';
 import { visionLogic } from './logic/visionLogic';
+import AppIcon from './assets/splash_screens/splash_screens/icon.png';
 import AntigravityLogo from './assets/Antigravity.jpg';
 import GeminiLogo from './assets/geminicli.png';
 
@@ -39,8 +40,8 @@ function App() {
         {/* Header */}
         <header className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-theme-primary/10 dark:bg-gray-100 rounded-xl shadow-lg transition-colors border border-theme-primary/20">
-              <Sparkle className="text-theme-primary dark:text-gray-900" size={32} />
+            <div className="p-1 bg-white/5 rounded-2xl shadow-xl transition-transform hover:scale-105 border border-white/10">
+              <img src={AppIcon} alt="VisionVibe Logo" className="w-12 h-12 md:w-16 md:h-12 object-contain rounded-xl" />
             </div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-theme-text transition-colors">
               VisionVibe
