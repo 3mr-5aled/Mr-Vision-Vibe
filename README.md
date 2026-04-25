@@ -2,7 +2,7 @@
 
 VisionVibe is a cutting-edge web application that blends artificial intelligence with artistic expression. Powered by Google's Gemini 1.5 Flash, it transforms your images and live camera captures into immersive "Midnight" vibe cards, complete with poetic descriptions, atmospheric mood analysis, and dynamically extracted color palettes.
 
-![VisionVibe Screenshot](public/screenshot-placeholder.png)
+![VisionVibe Screenshot](public/screenshot-vibe.png)
 
 ## ✨ Features
 
@@ -25,24 +25,28 @@ VisionVibe is a cutting-edge web application that blends artificial intelligence
 ## 🛠️ Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - A Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/3mr-5aled/vision-vibe.git
    cd vision-vibe
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Configure your environment:
    Create a `.env.local` file in the root directory:
+
    ```env
    VITE_GEMINI_API_KEY=your_api_key_here
    ```
